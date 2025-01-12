@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.recetariotfg.R
 
@@ -16,11 +17,18 @@ class LoginFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_login, container, false)
 
-        val btnLogin = root.findViewById<Button>(R.id.loginBtn)
+        val btnLogin : Button = root.findViewById(R.id.loginBtn)
+        val btnSignup : Button = root.findViewById(R.id.btnSignup)
 
         btnLogin.setOnClickListener {
             findNavController().navigate(
-                LoginFragmentDirections.actionLoginFragmentToHomeFragment(ejemplo = "hola mundo")
+                LoginFragmentDirections.actionLoginFragmentToHomeFragment(ejemplo = "logged in")
+            )
+        }
+
+        btnSignup.setOnClickListener{
+            findNavController().navigate(
+                LoginFragmentDirections.actionLoginFragmentToSignUpFragment()
             )
         }
 

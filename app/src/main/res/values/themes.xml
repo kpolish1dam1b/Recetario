@@ -22,4 +22,12 @@
     <style name="Theme.RecetarioTFG.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.RecetarioTFG.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ButtonAsTextView" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@color/text</item> <!-- Use your theme's text color -->
+        <item name="android:padding">0dp</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
 </resources>

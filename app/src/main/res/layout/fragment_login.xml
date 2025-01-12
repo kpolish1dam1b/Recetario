@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
+    style="@style/Theme.RecetarioTFG.NoActionBar"
     tools:context=".fragments.LoginFragment">
 
     <LinearLayout
@@ -59,8 +60,8 @@
             android:layout_marginBottom="8dp" />
 
         <!-- Signup Link -->
-        <TextView
-            android:id="@+id/signupButton"
+        <Button
+            android:id="@+id/btnSignup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Don't have an account? Sign up"
@@ -68,7 +69,8 @@
             android:textSize="14sp"
             android:layout_marginTop="16dp"
             android:clickable="true"
-            android:focusable="true" />
+            android:focusable="true"
+            style="@style/ButtonAsTextView"/>
 
     </LinearLayout>
 
