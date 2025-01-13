@@ -14,6 +14,9 @@
             android:name="ejemplo"
             app:argType="string"
             app:nullable="true"/>
+        <action
+            android:id="@+id/action_homeFragment_to_newRecipeFragment"
+            app:destination="@id/newRecipeFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -39,4 +42,9 @@
             android:id="@+id/action_signUpFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/newRecipeFragment"
+        android:name="com.example.recetariotfg.fragments.NewRecipeFragment"
+        android:label="fragment_new_recipe"
+        tools:layout="@layout/fragment_new_recipe" />
 </navigation>
