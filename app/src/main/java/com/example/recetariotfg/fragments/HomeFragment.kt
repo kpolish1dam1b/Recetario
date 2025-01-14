@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
 
         btnAdd.setOnClickListener{
             findNavController().navigate(
-                HomeFragmentDirections.actionHomeFragmentToNewRecipeFragment()
+                HomeFragmentDirections.actionHomeFragmentToNewRecipeFragment(args.ejemplo.toString())
             )
         }
 

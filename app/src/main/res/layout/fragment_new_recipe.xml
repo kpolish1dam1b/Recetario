@@ -1,15 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.NewRecipeFragment">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+style="@style/Theme.RecetarioTFG.NoActionBar"
+tools:context=".fragments.NewRecipeFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="40sp"
-        android:text="Create new recipe" />
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crear Receta"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:id="@+id/textViewUserEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Nombre de Receta -->
+        <EditText
+            android:id="@+id/etNombreReceta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de la Receta"
+            android:inputType="text"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Tipo de Receta -->
+        <Spinner
+            android:id="@+id/spinnerTipoReceta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:entries="@array/tipos_recetas" />
+
+        <!-- Ingredientes -->
+        <EditText
+            android:id="@+id/etIngredientes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingredientes (separados por comas)"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Instrucciones -->
+        <EditText
+            android:id="@+id/etInstrucciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Instrucciones"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:gravity="top"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Botón Publicar -->
+        <Button
+            android:id="@+id/btnPublicarReceta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Publicar"
+            android:layout_marginBottom="8dp" />
+
+    </LinearLayout>
 
 </FrameLayout>

@@ -1,18 +1,25 @@
 package com.example.recetariotfg.fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.os.Message
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.example.recetariotfg.R
+import com.google.firebase.Firebase
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.database
 
 class SignUpFragment : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,7 +27,9 @@ class SignUpFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_sign_up, container, false)
 
         val btnLogin = root.findViewById<Button>(R.id.tvLogin)
-        val btnSignup = root.findViewById<TextView>(R.id.btnSignUp)
+        val btnSignup = root.findViewById<Button>(R.id.btnSignUp)
+        val editTextEmail = root.findViewById<EditText>(R.id.editTextEmail)
+        val editTextPassword = root.findViewById<EditText>(R.id.editTextPassword)
 
         btnLogin.setOnClickListener {
             findNavController().navigate(
@@ -28,13 +37,42 @@ class SignUpFragment : Fragment() {
             )
         }
 
-        btnSignup.setOnClickListener{
-            findNavController().navigate(
-                SignUpFragmentDirections.actionSignUpFragmentToHomeFragment(ejemplo = "signed up")
-            )
+        btnSignup.setOnClickListener {
+                if (editTextEmail.text.isNotEmpty() && editTextPassword.text.isNotEmpty()){
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(editTextEmail.text.toString(),
+                        editTextPassword.text.toString()).addOnCompleteListener{
+                            if (it.isSuccessful){
+                                findNavController().navigate(
+                                    SignUpFragmentDirections.actionSignUpFragmentToHomeFragment(ejemplo = editTextEmail.text.toString())
+                                )
+                            } else {
+                                showAlertDialog("Se ha producido un error al crear un nuevo usuario.")
+                            }
+                    }
+                } else {showAlertDialog("No se han rellenado todos los campos")}
         }
 
         return root
+    }
+
+    private fun showAlertDialog(message: String) {
+        val builder = AlertDialog.Builder(this.context)
+        builder.setTitle("Alert")
+        builder.setMessage(message)
+
+        // Set positive button
+        builder.setPositiveButton("OK") { dialog, _ ->
+            dialog.dismiss() // Dismiss the dialog when the user clicks OK
+        }
+
+        // Set negative button (optional)
+        builder.setNegativeButton("Cancel") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        // Create and show the alert dialog
+        val dialog = builder.create()
+        dialog.show()
     }
 
 }
