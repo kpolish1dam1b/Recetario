@@ -8,10 +8,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.recetariotfg.R
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.DatabaseReference
 
 class NewRecipeFragment : Fragment() {
 
@@ -22,6 +21,15 @@ class NewRecipeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_new_recipe, container, false)
+
+        val btnPublicar : Button = root.findViewById(R.id.btnPublicarReceta)
+
+        btnPublicar.setOnClickListener{
+            findNavController().navigate(
+                NewRecipeFragmentDirections.actionNewRecipeFragmentToRecipeFragment()
+            )
+        }
+
 
         return root
     }
