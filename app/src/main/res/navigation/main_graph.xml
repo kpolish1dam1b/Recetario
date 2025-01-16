@@ -9,15 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.recetariotfg.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <argument
-            android:name="ejemplo"
-            app:argType="string"
-            app:nullable="true"/>
-        <action
-            android:id="@+id/action_homeFragment_to_newRecipeFragment"
-            app:destination="@id/newRecipeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.recetariotfg.fragments.LoginFragment"
@@ -48,15 +40,12 @@
         android:label="fragment_new_recipe"
         tools:layout="@layout/fragment_new_recipe" >
         <action
-            android:id="@+id/action_newRecipeFragment_to_recipeFragment"
-            app:destination="@id/recipeFragment" />
-        <argument
-            android:name="userEmail"
-            app:argType="string" />
+            android:id="@+id/action_newRecipeFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/recipeFragment"
-        android:name="com.example.recetariotfg.fragments.RecipeFragment"
+        android:name="com.example.recetariotfg.fragments.FavsFragment"
         android:label="fragment_recipe"
         tools:layout="@layout/fragment_recipe" >
 

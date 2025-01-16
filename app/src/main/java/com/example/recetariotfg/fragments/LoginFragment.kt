@@ -16,6 +16,10 @@ import com.google.firebase.analytics.analytics
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginFragment : Fragment() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(false)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,7 +39,7 @@ class LoginFragment : Fragment() {
                     editTextPassword.text.toString()).addOnCompleteListener{
                     if (it.isSuccessful){
                         findNavController().navigate(
-                            LoginFragmentDirections.actionLoginFragmentToHomeFragment(ejemplo = editTextEmail.text.toString())
+                            LoginFragmentDirections.actionLoginFragmentToHomeFragment()
                         )
                     } else {
                         showAlertDialog("Se ha producido un error al iniciar sesión")

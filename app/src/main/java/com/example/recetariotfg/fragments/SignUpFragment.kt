@@ -18,6 +18,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 
 class SignUpFragment : Fragment() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(false)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,7 +45,7 @@ class SignUpFragment : Fragment() {
                         editTextPassword.text.toString()).addOnCompleteListener{
                             if (it.isSuccessful){
                                 findNavController().navigate(
-                                    SignUpFragmentDirections.actionSignUpFragmentToHomeFragment(ejemplo = editTextEmail.text.toString())
+                                    SignUpFragmentDirections.actionSignUpFragmentToHomeFragment()
                                 )
                             } else {
                                 showAlertDialog("Se ha producido un error al crear un nuevo usuario.")

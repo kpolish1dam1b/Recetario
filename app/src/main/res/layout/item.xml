@@ -2,85 +2,106 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    style="@style/Theme.AppCompat.Light.NoActionBar"
-    android:layout_margin="20sp">
+    android:layout_margin="16dp"
+    android:radius="8dp"
+    android:elevation="4dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="15sp">
+        android:padding="16dp"
+        android:background="@color/background">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <!-- Title Section -->
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:text="Nombre de la receta"
+            android:textSize="22sp"
+            android:textColor="@color/primary_dark"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nombre: "
-                android:textSize="20sp"/>
-
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nombre: "
-                android:textSize="20sp"/>
-        </LinearLayout>
+        <!-- Type Section -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tipo: "
-                android:textSize="20sp"/>
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="comida "
-                android:textSize="20sp"/>
+                android:text="Comida"
+                android:textSize="18sp" />
         </LinearLayout>
+
+        <!-- Ingredients Section -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ingredientes: "
-                android:textSize="20sp"/>
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvIngredients"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="patata "
-                android:textSize="20sp"/>
+                android:text="Patata"
+                android:textSize="18sp" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
+        <!-- Instructions Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="16dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Instrucciones: "
-                android:textSize="20sp"/>
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvInstructions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum "
-                android:textSize="20sp"/>
+                android:text="Lorem ipsum"
+                android:textSize="18sp" />
+        </LinearLayout>
 
+        <!-- Like Button Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:paddingTop="12dp">
+            <Button
+                android:id="@+id/likeButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:text="Like"
+                android:textColor="@android:color/white"
+                android:background="@drawable/like"
+                android:padding="6dp"
+                android:minWidth="80dp"
+                android:minHeight="36dp"
+                android:layout_marginEnd="8dp" />
         </LinearLayout>
 
     </LinearLayout>
